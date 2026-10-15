@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Xondhan Library</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=touch-polish-3">
+  <link rel="stylesheet" href="css/account-showcase.css?v=4">
+</head>
+<body>
+  <!-- LOGIN -->
+  <main id="loginView" class="login-wrap" hidden>
+    <form id="loginForm" class="card login-card" autocomplete="on" novalidate>
+      <div class="brand brand-lg"><span class="brand-mark">XN</span><span>Xondhan Library</span></div>
+      <p class="muted">Admin sign in</p>
+      <label class="field">
+        <span>Email</span>
+        <input id="loginEmail" type="email" autocomplete="username" required maxlength="200">
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <input id="loginPassword" type="password" autocomplete="current-password" required maxlength="200">
+      </label>
+      <p id="loginError" class="error" role="alert" hidden></p>
+      <button id="loginBtn" class="btn btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <!-- APP -->
+  <div id="appView" class="app" hidden>
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">XN</span><span>Xondhan</span></div>
+      <nav id="nav" class="nav" aria-label="Main">
+        <button data-view="dashboard" class="nav-btn active">Dashboard</button>
+        <button data-view="books" class="nav-btn">Books</button>
+        <button data-view="issue" class="nav-btn">Issue Book</button>
+        <button data-view="borrowers" class="nav-btn">Active Borrowers</button>
+        <button data-view="stock" class="nav-btn">Stock</button>
+        <button data-view="history" class="nav-btn">History</button>
+        <button data-view="settings" class="nav-btn">Account</button>
+      </nav>
+      <button id="logoutBtn" class="btn btn-ghost btn-block">Sign out</button>
+    </aside>
+    <button id="sidebarBackdrop" class="sidebar-backdrop" type="button" aria-label="Close navigation" hidden></button>
+    <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <main id="content" class="content" tabindex="-1"></main>
+  </div>
+
+  <!-- Generic dialog -->
+  <dialog id="dialog" class="dialog"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <noscript>JavaScript is required to use this application.</noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+  <script src="config.js"></script>
+
+  <script src="js/account-terms.js?v=terms-reader-2"></script>
+  <script src="js/account-showcase.js?v=4"></script>
+  <script src="js/app.js?v=terms-1"></script>
+  <script src='dev-card.js?v=xn-burst-1'></script>
+</body>
+</html>

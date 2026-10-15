@@ -1,0 +1,201 @@
+.account-showcase {
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.showcase-collapsed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.showcase-prompt {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.showcase-button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.showcase-stage {
+  outline: none;
+}
+
+.showcase-shuffle {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+}
+
+.showcase-pile {
+  position: relative;
+  width: min(100%, 440px);
+  height: 200px;
+}
+
+.showcase-shuffle-card {
+  position: absolute;
+  inset: 8px 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  font: 700 48px/1 Georgia, "Times New Roman", serif;
+  background: var(--gradient);
+  box-shadow: 0 12px 28px rgba(66, 38, 83, .12);
+  opacity: 0;
+}
+
+.shuffle-card-1 { transform: translate(-14px, 3px) rotate(-7deg); }
+.shuffle-card-2 { transform: translate(12px, 1px) rotate(6deg); }
+.shuffle-card-3 { transform: translateY(-4px); }
+
+.is-shuffling .showcase-shuffle-card {
+  animation: showcase-shuffle 1s ease-in-out both;
+}
+
+.is-shuffling .shuffle-card-1 { animation-delay: 0s; }
+.is-shuffling .shuffle-card-2 { animation-delay: .08s; }
+.is-shuffling .shuffle-card-3 { animation-delay: .16s; }
+
+@keyframes showcase-shuffle {
+  0% { opacity: 0; transform: translateY(12px) rotate(0); }
+  18% { opacity: 1; transform: translate(-18px, -4px) rotate(-9deg); }
+  42% { opacity: .82; transform: translate(14px, 5px) rotate(8deg); }
+  68% { opacity: 1; transform: translate(-8px, 2px) rotate(-4deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.showcase-viewer {
+  min-height: 230px;
+  display: flex;
+  align-items: stretch;
+  touch-action: pan-y;
+}
+
+.showcase-slide-host {
+  width: 100%;
+  display: flex;
+}
+
+.showcase-slide {
+  width: 100%;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 8px;
+  opacity: 0;
+  transform: translateX(14px);
+  transition: transform .24s ease, opacity .24s ease;
+}
+
+.showcase-slide[role="button"] { cursor: pointer; }
+.showcase-slide[role="button"]:focus-visible { outline: 2px solid var(--primary); outline-offset: -3px; }
+
+.showcase-slide.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.showcase-title {
+  margin: 0 0 12px;
+  color: #173f39;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.showcase-slide-hero .showcase-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+}
+
+.showcase-lead {
+  margin: 0 0 9px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.showcase-copy {
+  margin: 0 0 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.showcase-copy:last-child { margin-bottom: 0; }
+
+.showcase-hint {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.showcase-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.showcase-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.showcase-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.showcase-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd9d5;
+  opacity: .75;
+  transform: scale(.85);
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.showcase-dot.is-current {
+  background: var(--primary);
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+@media (max-width: 480px) {
+  .account-showcase { padding: 15px; }
+  .showcase-collapsed { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .showcase-slide { padding: 14px 2px; }
+  .showcase-slide-hero .showcase-title { font-size: 30px; }
+  .showcase-footer { grid-template-columns: 68px 1fr 68px; gap: 6px; }
+  .showcase-footer .showcase-button { width: 100%; padding-inline: 8px; }
+  .showcase-progress { gap: 6px; }
+  .showcase-dot { width: 7px; height: 7px; }
+  .showcase-contact-links { display: grid; grid-template-columns: 1fr 1fr; }
+  .showcase-contact-links .showcase-button { width: 100%; font-size: 13px; padding-inline: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-showcase *,
+  .account-showcase *::before,
+  .account-showcase *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,16 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+.netlify/
+/.vscode/launch.json
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
